@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
-import com.jk.reflection.common.ReflectionException;
+import com.jk.reflection.common.RemoteReflectionException;
 
 public class ReflectionServer {
 	Logger logger = Logger.getLogger(getClass().getName());
@@ -53,14 +53,14 @@ public class ReflectionServer {
 				// it is safe to eat the exception since it most likely caused
 				// by calling the stop method
 			} else {
-				throw new ReflectionException(e);
+				throw new RemoteReflectionException(e);
 			}
 		} finally {
 			if (server != null && !server.isClosed()) {
 				try {
 					server.close();
 				} catch (IOException e) {
-					throw new ReflectionException(e);
+					throw new RemoteReflectionException(e);
 				}
 			}
 		}

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 import com.jk.reflection.common.MethodCallInfo;
-import com.jk.reflection.common.ReflectionException;
+import com.jk.reflection.common.RemoteReflectionException;
 
 public class MethodsCaller {
 	static Logger logger = Logger.getLogger(MethodsCaller.class.getName());
@@ -35,16 +35,16 @@ public class MethodsCaller {
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException
 				| SecurityException | IllegalArgumentException | InvocationTargetException e) {
 			logger.severe("calling to method failed : ".concat(info.toString()));
-			throw new ReflectionException(e);
+			throw new RemoteReflectionException(e);
 		}
 	}
 
 	/**
 	 * 
 	 * @param args
-	 * @throws ReflectionException
+	 * @throws RemoteReflectionException
 	 */
-	public static void main(String[] args) throws ReflectionException {
+	public static void main(String[] args) throws RemoteReflectionException {
 		MethodsCaller c = new MethodsCaller();
 		MethodCallInfo info = new MethodCallInfo();
 		info.setClassName("test.ToBeReflected");

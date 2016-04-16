@@ -1,6 +1,5 @@
 package com.jk.reflection.client;
 
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,44 +7,59 @@ import java.net.Socket;
 import java.util.logging.Logger;
 
 import com.jk.reflection.common.MethodCallInfo;
+import com.jk.reflection.common.RemoteReflectionException;
 
-
+/**
+ * This is class is used to call java method on remote JVM
+ * 
+ * @author Jalal Kiswani
+ * @Jan 2009
+ */
 public class ReflectionClient {
+	/**
+	 * Logger instance
+	 */
 	Logger logger = Logger.getLogger(getClass().getName());
+
+	/**
+	 * Remote host
+	 */
 	private String host;
+
+	/**
+	 * Remote port
+	 */
 	private int port;
 
-	// ad support for connection caching
+	/**
+	 * Construct this object with remote host and port
+	 * 
+	 * @param host
+	 *            remote host
+	 * @param port
+	 *            remote port
+	 */
 	public ReflectionClient(String host, int port) {
 		this.host = host;
 		this.port = port;
 	}
 
-	//////////////////////////////////////////////////////////////////////
-	public void callMethod(MethodCallInfo info) throws IOException {
+	/**
+	 * Call the remote method based on the passed MethodCallInfo parameter
+	 * 
+	 * @param info specification of remote method
+	 */
+	public void callMethod(MethodCallInfo info) {
 		logger.info("calling remote method ".concat(info.toString()));
-		Socket socket = new Socket(host, port);
-		try {
+		try (Socket socket = new Socket(host, port)) {
 			ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 			out.writeObject(info);
 			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 			MethodCallInfo serverCopy = (MethodCallInfo) in.readObject();
 			info.set(serverCopy);
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		} finally {
-
-			if (socket != null && !socket.isClosed()) {
-				socket.close();
-			}
+		} catch (Exception e) {
+			throw new RemoteReflectionException(e);
 		}
 	}
 
-	//////////////////////////////////////////////////////////////////////
-	public static void main(String[] args) throws IOException {
-		ReflectionClient client = new ReflectionClient("localhost", 8765);
-		MethodCallInfo info = new MethodCallInfo("test.ToBeReflected", "sayHello", "Jalal");
-		client.callMethod(info);
-		System.out.println(info.getResult());
-	}
 }
