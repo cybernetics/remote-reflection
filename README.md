@@ -4,21 +4,20 @@ Remote Reflection is a Java API which make it easier to call remote methods on r
 ##Usage
 ###Server 
 In the server application(the application which you want to expose its method remotely) , add the following after at the end of you main method:
-
-> public class YourMainClass{
-	...
-   public static void main(String args){
-    ..
-    ReflectionServer server = new ReflectionServer(PORT_NUMBER);
-    server.start();
-	}
-}
+>	    public class YourMainClass{
+		...
+	    public static void main(String args){
+	    ...	    
+	    ReflectionServer server = new ReflectionServer(PORT_NUMBER);
+	    server.start();
+		}
+   }
  
 Thats it , now you can expose any method inside this application VM to your application client.
  
 ###Client
 In the client application(the application which should consume the remote method):
->		ReflectionClient client = new ReflectionClient(remoteHostIp, remoteServerPort);
+>      ReflectionClient client = new ReflectionClient(remoteHostIp, remoteServerPort);
 		MethodCallInfo info = new MethodCallInfo(className, methodName, param);
 		client.callMethod(info);
 
