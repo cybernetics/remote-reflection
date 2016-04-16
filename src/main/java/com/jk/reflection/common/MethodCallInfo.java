@@ -3,23 +3,53 @@ package com.jk.reflection.common;
 import java.io.Serializable;
 import java.util.Arrays;
 
+/**
+ * This class contains the required information for RemoteReflection API to be
+ * able to call method remotely
+ * 
+ * @author Jalal Kiswani
+ * @Jan 2009
+ */
 public class MethodCallInfo implements Serializable {
-
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Remote class name
+	 */
 	private String className;
+
+	/**
+	 * Remote method name
+	 */
 	private String methodName;
+
+	/**
+	 * method parameters
+	 */
 	private Object[] paramters;
+
+	/**
+	 * Flag to indicate whether the operation has been succeded or failed
+	 */
 	private boolean failed;
+
+	/**
+	 * the resulted exception from the method call if any
+	 */
 	private Exception exception;
+
+	/**
+	 * The results of the remote call
+	 */
 	private Object result;
 
 	/**
-	 * 
+	 * Default constructor
 	 */
 	public MethodCallInfo() {
 	}
 
 	/**
+	 * Constructor with all the required info
 	 * 
 	 * @param className
 	 * @param methodName
@@ -32,6 +62,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * class name getter
 	 * 
 	 * @return
 	 */
@@ -40,6 +71,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * class name setter
 	 * 
 	 * @param className
 	 */
@@ -48,6 +80,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * method name getter
 	 * 
 	 * @return
 	 */
@@ -56,6 +89,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * method name setter
 	 * 
 	 * @param methodName
 	 */
@@ -64,6 +98,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * parameters getter
 	 * 
 	 * @return
 	 */
@@ -72,6 +107,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * get the types of the parameters using java reflection
 	 * 
 	 * @return
 	 */
@@ -85,6 +121,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * parameters setter
 	 * 
 	 * @param param
 	 */
@@ -93,6 +130,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * exception setter
 	 * 
 	 * @param e
 	 */
@@ -102,6 +140,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * check if the operation has been failed
 	 * 
 	 * @return
 	 */
@@ -110,6 +149,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * setter for failed flag
 	 * 
 	 * @param failed
 	 */
@@ -118,6 +158,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * the exception if the operation has been failed
 	 * 
 	 * @return
 	 */
@@ -126,6 +167,8 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * method call results setter (TODO : add handling to insure that it should
+	 * be set by server only)
 	 * 
 	 * @param result
 	 */
@@ -134,6 +177,8 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * get the result of the remote call , this method will through
+	 * {@link IllegalStateException} if the method has failed
 	 * 
 	 * @return
 	 */
@@ -147,6 +192,7 @@ public class MethodCallInfo implements Serializable {
 	}
 
 	/**
+	 * setter for full {@link MethodCallInfo}
 	 * 
 	 * @param another
 	 */
@@ -156,6 +202,9 @@ public class MethodCallInfo implements Serializable {
 		this.result = another.result;
 	}
 
+	/**
+	 * Override toString() method to provide useful information
+	 */
 	@Override
 	public String toString() {
 		StringBuffer b = new StringBuffer();

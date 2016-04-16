@@ -3,7 +3,13 @@
 	<groupId>com.jk</groupId>
 	<artifactId>jk-remote-reflection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	<name>RemoteReflection API</name>
+	<url>https://github.com/kiswanij/remote-reflection</url>
+	<description>Remote Reflection API is utility API which make it easier for calling remote method on remote JVM without the need for any special configurations, and without any contract between the applications.</description>
+	<organization>
+		<name>Jalal Kiswani</name>
+		<url>http://www.jalalkiswani.com</url>
+	</organization>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

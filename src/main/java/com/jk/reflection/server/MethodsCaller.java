@@ -1,6 +1,5 @@
 package com.jk.reflection.server;
 
-
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,10 +9,21 @@ import java.util.logging.Logger;
 import com.jk.reflection.common.MethodCallInfo;
 import com.jk.reflection.common.RemoteReflectionException;
 
+/**
+ * Local method caller in the server JVM , it will call the method using
+ * standard Java reflection API
+ *
+ * @author Jalal Kiswani
+ * 
+ * @Jan 2009
+ */
 public class MethodsCaller {
 	static Logger logger = Logger.getLogger(MethodsCaller.class.getName());
 
 	/**
+	 * Get the required information from {@link MethodCallInfo} object , and
+	 * then call it using java standard reflection API
+	 * 
 	 * @param info
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -39,18 +49,4 @@ public class MethodsCaller {
 		}
 	}
 
-	/**
-	 * 
-	 * @param args
-	 * @throws RemoteReflectionException
-	 */
-	public static void main(String[] args) throws RemoteReflectionException {
-		MethodsCaller c = new MethodsCaller();
-		MethodCallInfo info = new MethodCallInfo();
-		info.setClassName("test.ToBeReflected");
-		info.setMethodName("sayHello");
-		info.setParamters("Jalal", "Ata");
-		c.callMethod(info);
-		System.out.println(info.getResult());
-	}
 }

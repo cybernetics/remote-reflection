@@ -10,7 +10,7 @@ import com.jk.reflection.common.MethodCallInfo;
 import com.jk.reflection.common.RemoteReflectionException;
 
 /**
- * This is class is used to call java method on remote JVM
+ * This is class is used to call Java methods on remote JVM 
  * 
  * @author Jalal Kiswani
  * @Jan 2009
