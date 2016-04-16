@@ -20,13 +20,15 @@ In the client application(the application which should consume the remote method
 >      ReflectionClient client = new ReflectionClient(remoteHostIp, remoteServerPort);
 		MethodCallInfo info = new MethodCallInfo(className, methodName, param);
 		client.callMethod(info);
+		
+Thats it :)
 
 **For example:**		
 >		String className = "com.jk.reflection.test.TestRemoteObject";
 		String methodName = "sayHello";
 		MethodCallInfo info = new MethodCallInfo(className, methodName, "Jalal Kiswani");
 		client.callMethod(info);
-		Systtem.out.println(info.getResult());
+		System.out.println(info.getResult());
 		
 It will print "Hello Jalal Kiswani";
 		
