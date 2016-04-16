@@ -19,9 +19,7 @@ Thats it , now you can expose any method inside this application VM to your appl
 In the client application(the application which should consume the remote method):
 >      ReflectionClient client = new ReflectionClient(remoteHostIp, remoteServerPort);
 		MethodCallInfo info = new MethodCallInfo(className, methodName, param);
-		client.callMethod(info);
-		
-Thats it :)
+		client.callMethod(info);		
 
 **For example:**		
 >		String className = "com.jk.reflection.test.TestRemoteObject";
