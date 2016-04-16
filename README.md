@@ -1,8 +1,6 @@
 # Remote Reflection API
 Remote Reflection is a Java API which make it easier to call remote methods on remote JVM in very simple way without the need for any special configurations or common contract between client and server.
 
-![alt tag](https://github.com/kiswanij/remote-reflection/blob/master/design/RemoteReflection-API-UML.PNG)
-
 ##Usage
 ###Server 
 In the server application(the application which you want to expose its method remotely) , add the following after at the end of you main method:
@@ -33,6 +31,9 @@ In the client application(the application which should consume the remote method
 		
 It will print "Hello Jalal Kiswani";
 		
+##API Design (UML)
+![alt tag](https://github.com/kiswanij/remote-reflection/blob/master/design/RemoteReflection-API-UML.PNG)
+
 Enjoy!
 **Jalal**
 
