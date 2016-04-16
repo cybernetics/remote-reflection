@@ -14,6 +14,7 @@ import com.jk.reflection.server.ReflectionServer;
 
 /**
  * RemoteReflection API test cases
+ * 
  * @author Jalal
  *
  */
@@ -26,9 +27,7 @@ public class RemoteReflectionTest {
 	public static void init() throws IOException {
 		Thread thread = new Thread() {
 			public void run() {
-				logger.info("init reflectinoServer on port " + TEST_SERVER_PORT);
 				server = new ReflectionServer(TEST_SERVER_PORT);
-				logger.info("starting reflectinoServer");
 				server.start();
 			}
 		};
@@ -37,13 +36,13 @@ public class RemoteReflectionTest {
 
 	@Test
 	public void testRemoteCall() throws IOException {
-		logger.info("init reflection client");
 		ReflectionClient client = new ReflectionClient("localhost", TEST_SERVER_PORT);
-		logger.info("calling RemoteBusinessTest.sayHello with Paramters".concat("Jalal"));
-		MethodCallInfo info = new MethodCallInfo("com.jk.reflection.test.TestRemoteObject", "sayHello", "Jalal");
+		String param = "Jalal Kiswani";
+		String className = "com.jk.reflection.test.TestRemoteObject";
+		String methodName = "sayHello";
+		MethodCallInfo info = new MethodCallInfo(className, methodName, param);
 		client.callMethod(info);
-		logger.info("Results : ".concat(info.getResult() == null ? "Null" : info.getResult().toString()));
-		Assert.assertEquals(info.getResult(), "Hello Jalal");
+		Assert.assertEquals(info.getResult(), "Hello " + param);
 
 	}
 
