@@ -24,29 +24,24 @@ import com.jk.reflection.common.MethodCallInfo;
 import com.jk.reflection.common.RemoteReflectionException;
 
 /**
- * This is class is used to call Java methods on remote JVM
+ * This is class is used to call Java methods on remote JVM.
  *
  * @author Jalal Kiswani
  * @Jan 2009
  */
 public class ReflectionClient {
-	/**
-	 * Logger instance
-	 */
+	
+	/** Logger instance. */
 	Logger logger = Logger.getLogger(getClass().getName());
 
-	/**
-	 * Remote host
-	 */
+	/** Remote host. */
 	private final String host;
 
-	/**
-	 * Remote port
-	 */
+	/** Remote port. */
 	private final int port;
 
 	/**
-	 * Construct this object with remote host and port
+	 * Construct this object with remote host and port.
 	 *
 	 * @param host
 	 *            remote host
@@ -59,7 +54,7 @@ public class ReflectionClient {
 	}
 
 	/**
-	 * Call the remote method based on the passed MethodCallInfo parameter
+	 * Call the remote method based on the passed MethodCallInfo parameter.
 	 *
 	 * @param info
 	 *            specification of remote method

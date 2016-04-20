@@ -28,41 +28,32 @@ import com.jk.reflection.common.RemoteReflectionException;
 /**
  * This is the core class in RemoteReflection API , it should be started inside
  * the remote application main method( the remote application in which the
- * classes can be accessed remotely)
+ * classes can be accessed remotely).
  *
  * @author Jalal Kiswani
  * @Jan 2009
- *
  */
 public class ReflectionServer {
-	/**
-	 * Default port number
-	 */
+	
+	/** Default port number. */
 	public static final int DEFAULT_PORT = 8765;
 
-	/**
-	 * Logger instance
-	 */
+	/** Logger instance. */
 	Logger logger = Logger.getLogger(getClass().getName());
 
+	/** The stopped. */
 	/*
 	 * stopped flag to be used for threading purposes
 	 */
 	boolean stopped;
 
-	/**
-	 * internal flag for thtreading purposes
-	 */
+	/** internal flag for thtreading purposes. */
 	boolean waitingClient;
 
-	/**
-	 * local port
-	 */
+	/** local port. */
 	int port;
 
-	/**
-	 * ServerSocket instace
-	 */
+	/** ServerSocket instace. */
 	ServerSocket server;
 
 	/**
@@ -72,16 +63,17 @@ public class ReflectionServer {
 	ExecutorService executorService = Executors.newCachedThreadPool();
 
 	/**
-	 * Default constructor with the default port
+	 * Default constructor with the default port.
 	 */
 	public ReflectionServer() {
 		this(ReflectionServer.DEFAULT_PORT);
 	}
 
 	/**
-	 * Constructor with server port
+	 * Constructor with server port.
 	 *
 	 * @param port
+	 *            the port
 	 */
 	public ReflectionServer(final int port) {
 		this.port = port;
@@ -89,10 +81,12 @@ public class ReflectionServer {
 
 	/**
 	 * Handle client request , this method will be called when new client
-	 * connection received by the start method
+	 * connection received by the start method.
 	 *
 	 * @param client
+	 *            the client
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	protected void handleClient(final Socket client) throws IOException {
 		final ClientHandler handler = new ClientHandler(client);
@@ -108,8 +102,7 @@ public class ReflectionServer {
 	 * <li>for every client connection received , handleClient method will be
 	 * called
 	 * </ul>
-	 *
-	 * @throws IOException
+	 * .
 	 */
 	public void start() {
 		this.logger.info("starting reflection server on port : " + this.port);
@@ -146,9 +139,10 @@ public class ReflectionServer {
 
 	/**
 	 * Stop the server instance by setting the stopped flag to true , the close
-	 * the server instance if open
+	 * the server instance if open.
 	 *
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public synchronized void stop() throws IOException {
 		this.stopped = true;

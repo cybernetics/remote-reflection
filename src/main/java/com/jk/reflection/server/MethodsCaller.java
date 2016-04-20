@@ -26,20 +26,22 @@ import com.jk.reflection.common.RemoteReflectionException;
 
 /**
  * Local method caller in the server JVM , it will call the method using
- * standard Java reflection API
+ * standard Java reflection API.
  *
  * @author Jalal Kiswani
- *
  * @Jan 2009
  */
 public class MethodsCaller {
+	
+	/** The logger. */
 	static Logger logger = Logger.getLogger(MethodsCaller.class.getName());
 
 	/**
 	 * Get the required information from {@link MethodCallInfo} object , and
-	 * then call it using java standard reflection API
+	 * then call it using java standard reflection API.
 	 *
 	 * @param info
+	 *            the info
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void callMethod(final MethodCallInfo info) {

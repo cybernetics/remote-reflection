@@ -16,45 +16,50 @@
 package com.jk.reflection.common;
 
 /**
- * Custom exception for all RemoteReflection related exceptions
+ * Custom exception for all RemoteReflection related exceptions.
  *
  * @author Jalal Kiswani
  * @Jan 2009
  */
 public class RemoteReflectionException extends RuntimeException {
 
-	/**
-	 *
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 */
 	public RemoteReflectionException() {
 		super();
 	}
 
 	/**
+	 * Instantiates a new remote reflection exception.
 	 *
 	 * @param message
+	 *            the message
 	 */
 	public RemoteReflectionException(final String message) {
 		super(message);
 	}
 
 	/**
+	 * Instantiates a new remote reflection exception.
 	 *
 	 * @param message
+	 *            the message
 	 * @param cause
+	 *            the cause
 	 */
 	public RemoteReflectionException(final String message, final Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
+	 * Instantiates a new remote reflection exception.
 	 *
 	 * @param cause
+	 *            the cause
 	 */
 	public RemoteReflectionException(final Throwable cause) {
 		super(cause);

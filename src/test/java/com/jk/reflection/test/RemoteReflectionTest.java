@@ -28,22 +28,39 @@ import com.jk.reflection.common.MethodCallInfo;
 import com.jk.reflection.server.ReflectionServer;
 
 /**
- * RemoteReflection API test cases
+ * RemoteReflection API test cases.
  *
  * @author Jalal
- *
  */
 public class RemoteReflectionTest {
+	
+	/** The logger. */
 	static Logger logger = Logger.getLogger(RemoteReflectionTest.class.getName());
+	
+	/** The Constant TEST_SERVER_PORT. */
 	private static final int TEST_SERVER_PORT = 951;
+	
+	/** The server. */
 	static ReflectionServer server;
 
+	/**
+	 * Close.
+	 *
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
 	@AfterClass
 	public static void close() throws IOException {
 		RemoteReflectionTest.logger.info("Stopping server");
 		RemoteReflectionTest.server.stop();
 	}
 
+	/**
+	 * Inits the.
+	 *
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
 	@BeforeClass
 	public static void init() throws IOException {
 		final Thread thread = new Thread() {
@@ -56,6 +73,12 @@ public class RemoteReflectionTest {
 		thread.start();
 	}
 
+	/**
+	 * Test remote call.
+	 *
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
 	@Test
 	public void testRemoteCall() throws IOException {
 		final ReflectionClient client = new ReflectionClient("localhost", RemoteReflectionTest.TEST_SERVER_PORT);

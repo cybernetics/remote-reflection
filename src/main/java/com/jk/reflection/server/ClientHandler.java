@@ -33,20 +33,18 @@ import com.jk.reflection.common.MethodCallInfo;
  * @Jan 2009
  */
 public class ClientHandler implements Runnable {
-	/**
-	 * Logger instance
-	 */
+	
+	/** Logger instance. */
 	static Logger logger = Logger.getLogger(ClientHandler.class.getName());
 
-	/**
-	 * Client socket instance
-	 */
+	/** Client socket instance. */
 	private final Socket client;
 
 	/**
-	 * constructor with the client socket
+	 * constructor with the client socket.
 	 *
 	 * @param client
+	 *            the client
 	 */
 	public ClientHandler(final Socket client) {
 		this.client = client;

@@ -17,17 +17,18 @@ package com.jk.reflection.test;
 
 /**
  * Remote test object to be called remotely by the {@link RemoteReflectionTest}
- * class
+ * class.
  *
  * @author Jalal
- *
  */
 public class TestRemoteObject {
 
 	/**
+	 * Say hello.
 	 *
 	 * @param name
-	 * @return
+	 *            the name
+	 * @return the string
 	 */
 	public String sayHello(final String name) {
 		return "Hello " + name;
