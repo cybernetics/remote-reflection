@@ -33,13 +33,13 @@ import com.jk.reflection.server.ReflectionServer;
  * @author Jalal
  */
 public class RemoteReflectionTest {
-	
+
 	/** The logger. */
 	static Logger logger = Logger.getLogger(RemoteReflectionTest.class.getName());
-	
+
 	/** The Constant TEST_SERVER_PORT. */
 	private static final int TEST_SERVER_PORT = 951;
-	
+
 	/** The server. */
 	static ReflectionServer server;
 

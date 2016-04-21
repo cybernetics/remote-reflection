@@ -33,7 +33,7 @@ import com.jk.reflection.common.MethodCallInfo;
  * @Jan 2009
  */
 public class ClientHandler implements Runnable {
-	
+
 	/** Logger instance. */
 	static Logger logger = Logger.getLogger(ClientHandler.class.getName());
 

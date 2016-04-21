@@ -26,10 +26,10 @@ import java.util.Arrays;
  * @Jan 2009
  */
 public class MethodCallInfo implements Serializable {
-	
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** Remote class name. */
 	private String className;
 

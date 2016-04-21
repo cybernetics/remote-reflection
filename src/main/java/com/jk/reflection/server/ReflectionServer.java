@@ -34,7 +34,7 @@ import com.jk.reflection.common.RemoteReflectionException;
  * @Jan 2009
  */
 public class ReflectionServer {
-	
+
 	/** Default port number. */
 	public static final int DEFAULT_PORT = 8765;
 

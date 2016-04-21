@@ -30,7 +30,7 @@ import com.jk.reflection.common.RemoteReflectionException;
  * @Jan 2009
  */
 public class ReflectionClient {
-	
+
 	/** Logger instance. */
 	Logger logger = Logger.getLogger(getClass().getName());
 
