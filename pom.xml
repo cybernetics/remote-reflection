@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jalalkiswani</groupId>
 	<artifactId>jk-remote-reflection</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.5</version>
 	<name>JK-RemoteReflection API</name>
 	<url>https://github.com/kiswanij/remote-reflection</url>
 	<description>Remote Reflection API is utility API which make it easier for calling remote method on remote JVM without the need for any special configurations, and without any contract between the applications.</description>
